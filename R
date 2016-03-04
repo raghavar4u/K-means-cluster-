@@ -1,6 +1,6 @@
 selectedVar<-c("","","")
 
-cluster <- kmeans(dist(clustdata[, selectedVar]), centers = 4)
+cluster <- kmeans(dist(clustdata[, selectedVar]), centers = 4) ### Refer How many clusters file in the Repository 
 
 clustdata<- transform(clustdata, cl = cluster$cluster)
 
