@@ -1,0 +1,15 @@
+selectedVar<-c("","","")
+
+cluster <- kmeans(dist(clustdata[, selectedVar]), centers = 4)
+
+clustdata<- transform(clustdata, cl = cluster$cluster)
+
+rm(mean)
+aggregate(cbind("","","") ~ cl, clustdata, mean)
+
+clustdata$EMP_CODE[clustdata$cl == 1];clustdata$EMP_CODE[clustdata$cl == 2];clustdata$EMP_CODE[clustdata$cl == 3];clustdata$EMP_CODE[clustdata$cl == 4];clustdata$EMP_CODE[clustdata$cl == 5]
+
+library(cluster)
+png("componenetcluster.png")
+clusplot(clustdata, cluster$cluster, color=TRUE,label=1, lines=0)
+dev.off()
